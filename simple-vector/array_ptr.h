@@ -25,12 +25,12 @@ public:
 
     ArrayPtr& operator=(ArrayPtr&& other)
     {
-        if (&other == this)
-        {
+        if (&other == this) {
             return *this;
         }
-        delete[] raw_ptr_;
-        raw_ptr_ = other.Release();
+//        delete[] raw_ptr_;
+//        raw_ptr_ = other.Release();
+        swap(raw_ptr_, other.Release());
         return *this;
     }
 

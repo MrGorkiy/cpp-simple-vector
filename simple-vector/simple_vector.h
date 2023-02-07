@@ -103,11 +103,13 @@ public:
 
     // Возвращает ссылку на элемент с индексом index
     Type& operator[](size_t index) noexcept {
+        assert(index < size_);
         return ptr_[index];
     }
 
     // Возвращает константную ссылку на элемент с индексом index
     const Type& operator[](size_t index) const noexcept {
+        assert(index < size_);
         return ptr_[index];
     }
 
@@ -219,7 +221,7 @@ public:
 
     // Удаляет элемент вектора в указанной позиции
     Iterator Erase(ConstIterator pos){
-        assert(pos <= end() && pos >= begin());
+        assert(pos >= begin() && pos < end());
         Iterator it = &ptr_[std::distance<ConstIterator>(cbegin(), pos)];
         std::move(it + 1, end(), it);
         --size_;
