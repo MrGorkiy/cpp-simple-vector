@@ -10,3 +10,5 @@
 
 ### Системные требования:
 - C++17.
+
+Автор: [MrGorkiy](https://github.com/MrGorkiy)
